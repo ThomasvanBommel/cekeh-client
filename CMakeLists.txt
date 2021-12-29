@@ -1,12 +1,31 @@
 cmake_minimum_required(VERSION 3.10)
 project(cekeh-client VERSION 1.0)
 
+include(FetchContent)
+
+# GLFW 3.3.6
+FetchContent_Declare(
+    GLFW
+    URL        https://github.com/glfw/glfw/releases/download/3.3.6/glfw-3.3.6.zip
+    SOURCE_DIR ${CMAKE_SOURCE_DIR}/external/glfw
+)
+
+FetchContent_MakeAvailable(glfw)
+add_subdirectory(${CMAKE_SOURCE_DIR}/external/glfw)
+
+# GLEW 2.2.0
+FetchContent_Declare(
+    GLEW
+    URL        https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.zip
+    SOURCE_DIR ${CMAKE_SOURCE_DIR}/external/glew
+)
+
+FetchContent_MakeAvailable(glew)
+add_subdirectory(${CMAKE_SOURCE_DIR}/external/glew/build/cmake)
+
+# OpenGL
 find_package(OpenGL REQUIRED)
 
-add_subdirectory(
-    external/glfw
-    external/glew
-)
 include_directories(
     external/glfw/include/
     external/glew/include/
@@ -27,6 +46,7 @@ target_link_libraries(
     cekeh-client PUBLIC
     ${OPENGL_LIBRARY}
     glfw
+    glew_s
 )
 
 target_include_directories(

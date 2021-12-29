@@ -10,9 +10,9 @@
 #include <config.h>
 #include <stdio.h>
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-// #include <GL/glew.h>
 // #include <glm/glm.hpp>
 // using namespace glm;
 
@@ -43,6 +43,13 @@ int main() {
 
     glfwMakeContextCurrent(window);
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+
+    glewExperimental = true;
+
+    if(glewInit() != GLEW_OK){
+        fprintf(stderr, "Failed to initialize GLEW\n");
+        return 1;
+    }
 
     do {
         glClear(GL_COLOR_BUFFER_BIT);
