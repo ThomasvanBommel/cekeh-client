@@ -1,6 +1,15 @@
 # cekeh-client
 OpenGL client for cekeh game
 
+Be sure to initialize the required submodules with one of these options:
+```bash
+# clone using the --resurse-submodules tag
+git clone --recurse-submodules https://github.com/ThomasvanBommel/cekeh-client.git
+
+# ... or this if you've already cloned it
+git submodule init
+```
+
 <br />
 
 ## Requirements
@@ -10,14 +19,6 @@ sudo apt-get install cmake
 ```
 
 <!-- cmake make g++ libx11-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxrandr-dev libxext-dev libxcursor-dev libxinerama-dev libxi-dev -->
-
-Use the `--recurse-submodules` tag when cloning this repository:
-```bash
-git clone --recurse-submodules https://github.com/ThomasvanBommel/cekeh-client.git
-
-# ... or this if you've already cloned it
-git submodule init
-```
 
 <br />
 
