@@ -1,15 +1,29 @@
 # cekeh-client
 OpenGL client for cekeh game
 
+<br />
+
 ## Requirements
- - You must have g++ installed `sudo apt-get install g++`
+ - cmake 
+ - make 
+ - g++ 
+
+```bash
+sudo apt-get install cmake make g++
+```
+
+<!-- cmake make g++ libx11-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxrandr-dev libxext-dev libxcursor-dev libxinerama-dev libxi-dev -->
+
+<br />
 
 ## Running the application
 ```bash
-# compile only
-./compile
+# configure, build, and execute
+./run
 
-# compile and run
-./compile -r # or
-./compile --run
+# force re-configure, re-build, and execute
+./run -f # or
+./run --force
 ```
+
+<br />

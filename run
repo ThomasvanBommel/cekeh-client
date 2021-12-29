@@ -1,0 +1,19 @@
+#!/bin/bash -e
+
+BUILD_PATH=build/
+
+function build {
+    # configure
+    mkdir -p $BUILD_PATH && cmake -B $BUILD_PATH .
+
+    # build
+    cmake --build $BUILD_PATH
+}
+
+# build if forced or if executable doesn't exist
+if [[ ! -f $BUILD_PATH/cekeh-client ]] || [[ "$1" == "-f" ]] || [[ "$1" == "--force" ]]; then
+    build
+fi
+
+# run
+$BUILD_PATH/cekeh-client

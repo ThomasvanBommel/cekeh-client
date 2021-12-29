@@ -1,9 +1,0 @@
-#!/bin/bash -e
-
-# compile the program
-g++ -o run src/main.cpp
-
-# run the program if -r or --run is the first parameter
-if [[ "$1" == "-r" ]] || [[ "$1" == "--run" ]]; then
-    ./run
-fi
