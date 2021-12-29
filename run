@@ -15,5 +15,7 @@ if [[ ! -f $BUILD_PATH/cekeh-client ]] || [[ "$1" == "-f" ]] || [[ "$1" == "--fo
     build
 fi
 
+printf "\n---\n\n"
+
 # run
 $BUILD_PATH/cekeh-client

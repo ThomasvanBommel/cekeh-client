@@ -1,0 +1,2 @@
+#define CONFIG_VERSION_MAJOR @cekeh-client_VERSION_MAJOR@
+#define CONFIG_VERSION_MINOR @cekeh-client_VERSION_MINOR@
