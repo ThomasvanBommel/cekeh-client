@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
-
 project(cekeh-client VERSION 1.0)
+
+add_subdirectory(external/glfw)
+include_directories(
+    external/glfw/include/
+    .
+)
 
 configure_file(src/config.h.in config.h)
 
@@ -12,7 +17,13 @@ add_executable(
     src/main.cpp
 )
 
+target_link_libraries(
+    cekeh-client PUBLIC
+    glfw
+)
+
 target_include_directories(
     cekeh-client PUBLIC
     "${PROJECT_BINARY_DIR}"
+    # "${PROJECT_SOURCE_DIR}/external/glfw"
 )
