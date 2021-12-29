@@ -1,20 +1,24 @@
 #!/bin/bash -e
 
+# cekeh-client run
+# Created: 2021-12-29
+# Author : ThomasvanBommel
+#
+# Modificaitons:
+# 2021-12-29 - Added support for cmake
+
 BUILD_PATH=build/
 
-function build {
+# build if forced or if executable doesn't exist
+if [[ ! -f $BUILD_PATH/cekeh-client ]] || [[ "$1" == "-f" ]] || [[ "$1" == "--force" ]]; then
     # configure
     mkdir -p $BUILD_PATH && cmake -B $BUILD_PATH .
 
     # build
     cmake --build $BUILD_PATH
-}
-
-# build if forced or if executable doesn't exist
-if [[ ! -f $BUILD_PATH/cekeh-client ]] || [[ "$1" == "-f" ]] || [[ "$1" == "--force" ]]; then
-    build
 fi
 
+# space application output from the build output
 printf "\n---\n\n"
 
 # run
