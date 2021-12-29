@@ -1,6 +1,7 @@
 /*
  * cekeh-client main.cpp
  * Created: 2021-12-28
+ * Author : ThomasvanBommel
  * 
  * Modifications:
  * 2021-12-29 - Added GLFW window
