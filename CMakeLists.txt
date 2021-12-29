@@ -3,9 +3,13 @@ project(cekeh-client VERSION 1.0)
 
 find_package(OpenGL REQUIRED)
 
-add_subdirectory(external/glfw)
+add_subdirectory(
+    external/glfw
+    external/glew
+)
 include_directories(
     external/glfw/include/
+    external/glew/include/
     .
 )
 
