@@ -16,22 +16,43 @@
 // #include <glm/glm.hpp>
 // using namespace glm;
 
-int main() {
-    printf("%s\n", APPLICATION_TITLE);
-
-    Window window = Window(APPLICATION_TITLE);
+Window* initialize() {
+    // Create window
+    Window* window = new Window(APPLICATION_TITLE);
     
-    if(!window.init())
-        return 1;
+    // Initialize window
+    if(!window->init())
+        return NULL;
 
+    // Set GLEW to use experimental mode
     glewExperimental = true;
 
+    // Initialize GLEW
     if(glewInit() != GLEW_OK){
         fprintf(stderr, "Failed to initialize GLEW\n");
-        return 1;
+        return NULL;
     }
 
-    window.run();
+    return window;
+}
 
+int main() {
+    // Log to console
+    printf("%s\n", APPLICATION_TITLE);
+
+    // Initialize application
+    Window* window = initialize();
+
+    // Ensure successful initialization
+    if(window != NULL){
+        // Start application
+        window->run();
+
+        // Delete window
+        delete window;
+    }
+
+    // Log to conosle
+    printf("exit(0)\n");
     return 0;
 }
