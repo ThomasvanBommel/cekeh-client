@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <GLFW/glfw3.h>
 #include <graphics/mesh.h>
+#include <util/loader.h>
 
 class Window {
     public:
@@ -66,11 +67,14 @@ class Window {
                  0.0f,  1.0f, 0.0f
             };
 
-            Mesh mesh = Mesh(vertices, 9);
+            Mesh mesh = Mesh(
+                vertices, 9, 
+                LoadShader("shaders/test/vertex.vs", "shaders/test/fragment.fs")
+            );
 
             do {
                 // Clear background buffer
-                glClear(GL_COLOR_BUFFER_BIT);
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
                 // RENDERING
                 mesh.render();
