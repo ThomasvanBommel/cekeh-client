@@ -41,6 +41,7 @@ find_package(OpenGL REQUIRED)
 include_directories(
     external/glew/include/
     external/glfw/include/
+    src/
 )
 
 # Add custom configuration headers for compiler use

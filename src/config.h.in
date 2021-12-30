@@ -1,2 +1,3 @@
-#define CONFIG_VERSION_MAJOR @cekeh-client_VERSION_MAJOR@
-#define CONFIG_VERSION_MINOR @cekeh-client_VERSION_MINOR@
+#define CONFIG_VERSION_MAJOR "@cekeh-client_VERSION_MAJOR@"
+#define CONFIG_VERSION_MINOR "@cekeh-client_VERSION_MINOR@"
+#define APPLICATION_TITLE "cekeh-client v@cekeh-client_VERSION_MAJOR@.@cekeh-client_VERSION_MINOR@"
