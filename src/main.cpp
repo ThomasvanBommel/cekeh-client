@@ -19,17 +19,22 @@
 Window* initialize() {
     // Create window
     Window* window = new Window(APPLICATION_TITLE);
-    
-    // Initialize window
-    if(!window->init())
-        return NULL;
 
     // Set GLEW to use experimental mode
     glewExperimental = true;
 
+    // Initialize window
+    bool successful = window->init();
+
     // Initialize GLEW
-    if(glewInit() != GLEW_OK){
+    if(glewInit() != GLEW_OK) {
         fprintf(stderr, "Failed to initialize GLEW\n");
+        successful = false;
+    }
+
+    // Clean up if unsuccessful
+    if(!successful){
+        delete window;
         return NULL;
     }
 

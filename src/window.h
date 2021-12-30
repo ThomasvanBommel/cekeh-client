@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <GLFW/glfw3.h>
+#include <graphics/mesh.h>
 
 class Window {
     public:
@@ -48,13 +49,32 @@ class Window {
             return true;            
         }
 
+        bool shouldClose() {
+            return glfwGetKey(_window, GLFW_KEY_ESCAPE) == GLFW_PRESS || 
+                   glfwWindowShouldClose(_window) != 0;
+        }
+
         // Start event loop
         void run() {
+            GLuint vertexArray;
+            glGenVertexArrays(1, &vertexArray);
+            glBindVertexArray(vertexArray);
+
+            GLfloat vertices[] = {
+                -1.0f, -1.0f, 0.0f,
+                 1.0f, -1.0f, 0.0f,
+                 0.0f,  1.0f, 0.0f
+            };
+
+            Mesh mesh = Mesh(vertices, 9);
+
             do {
                 // Clear background buffer
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                // draw nothing...
+                // RENDERING
+                mesh.render();
+                // END
 
                 // Swap background and foreground buffers
                 glfwSwapBuffers(_window);
@@ -63,10 +83,7 @@ class Window {
                 glfwPollEvents();
 
                 // Keep looping until escape is pressed or window is closed
-            } while(
-                glfwGetKey(_window, GLFW_KEY_ESCAPE) != GLFW_PRESS && 
-                glfwWindowShouldClose(_window) == 0
-            );
+            } while(!shouldClose());
         }
 
     private:
