@@ -45,7 +45,7 @@ include_directories(
 )
 
 # Add custom configuration headers for compiler use
-configure_file(src/config.h.in config.h)
+configure_file(src/config.hpp.in config.hpp)
 
 # Set C++ version
 set(CMAKE_CXX_STANDARD 11)

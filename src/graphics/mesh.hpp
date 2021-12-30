@@ -1,5 +1,5 @@
 /*
- * cekeh-client src/graphics/mesh.h
+ * cekeh-client src/graphics/mesh.hpp
  * Created: 2021-12-30
  * Author : ThomasvanBommel
  * 

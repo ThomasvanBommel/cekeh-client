@@ -8,8 +8,8 @@
 
 #include <stdio.h>
 #include <GLFW/glfw3.h>
-#include <graphics/mesh.h>
-#include <util/loader.h>
+#include <graphics/mesh.hpp>
+#include <util/loader.hpp>
 
 class Window {
     public:

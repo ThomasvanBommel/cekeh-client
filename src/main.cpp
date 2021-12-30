@@ -7,14 +7,12 @@
  * 2021-12-29 - Added GLFW window
  */
 
-#include <config.h>
 #include <stdio.h>
 
 #include <GL/glew.h>
-#include <window.h>
 
-// #include <glm/glm.hpp>
-// using namespace glm;
+#include <config.hpp>
+#include <window.hpp>
 
 Window* initialize() {
     // Create window

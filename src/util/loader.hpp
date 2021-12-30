@@ -1,5 +1,5 @@
 /*
- * cekeh-client src/util/loader.h
+ * cekeh-client src/util/loader.hpp
  * Created: 2021-12-30
  * Author : ThomasvanBommel
  * 

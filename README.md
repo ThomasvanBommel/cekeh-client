@@ -13,9 +13,10 @@ git submodule init
 <br />
 
 ## Requirements
-cmake 
+ - cmake
+ - g++
 ```bash
-sudo apt-get install cmake
+sudo apt-get install cmake g++
 ```
 
 <!-- cmake make g++ libx11-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxrandr-dev libxext-dev libxcursor-dev libxinerama-dev libxi-dev -->
