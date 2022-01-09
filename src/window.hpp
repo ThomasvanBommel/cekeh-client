@@ -4,11 +4,16 @@
  * Author : ThomasvanBommel
  * 
  * Modifications:
+ * 2022-01-09: Added header guard
  */
+
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include <stdio.h>
 #include <GLFW/glfw3.h>
 #include <graphics/mesh.hpp>
+#include <graphics/shader.hpp>
 #include <util/loader.hpp>
 
 class Window {
@@ -67,9 +72,12 @@ class Window {
                  0.0f,  1.0f, 0.0f
             };
 
+            Shader shader ("shaders/test/vertex.vs", "shaders/test/fragment.fs");
+            shader.init(); // check if valid
+
             Mesh mesh = Mesh(
-                vertices, 9, 
-                LoadShader("shaders/test/vertex.vs", "shaders/test/fragment.fs")
+                vertices, 9, &shader
+                // LoadShader("shaders/test/vertex.vs", "shaders/test/fragment.fs")
             );
 
             do {
@@ -94,3 +102,5 @@ class Window {
         const char* _title;
         GLFWwindow* _window;
 };
+
+#endif

@@ -4,7 +4,11 @@
  * Author : ThomasvanBommel
  * 
  * Modifications:
+ * 2022-01-09: Added header guard
  */
+
+#ifndef LOADER_H
+#define LOADER_H
 
 #include <string>
 #include <fstream>
@@ -12,6 +16,23 @@
 #include <vector>
 
 using namespace std;
+
+string LoadFile(const char* path) {
+    string contents;
+    ifstream fileStream (path, ios::in);
+
+    if(fileStream.is_open()) {
+        stringstream stream;
+        stream << fileStream.rdbuf();
+        contents = stream.str();
+        fileStream.close();
+    }else{
+        printf("Unable to open file stream [%s]\n", path);
+        return "";
+    }
+
+    return contents;
+}
 
 string ImportFile(const char* path) {
     string contents;
@@ -115,3 +136,5 @@ GLuint LoadShader(const char* vertexPath, const char* fragmentPath) {
 
     return program;
 }
+
+#endif

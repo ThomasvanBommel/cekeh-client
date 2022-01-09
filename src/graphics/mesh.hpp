@@ -4,11 +4,17 @@
  * Author : ThomasvanBommel
  * 
  * Modifications:
+ * 2022-01-09: Added header guard
  */
+
+#ifndef MESH_H
+#define MESH_H
+
+#include <graphics/shader.hpp>
 
 class Mesh {
     public:
-        Mesh(GLfloat* vertices, int size, GLuint shader) {
+        Mesh(GLfloat* vertices, int size, Shader* shader) {
             _vertices = vertices;
             _vertexCount = size / 3;
             _shader = shader;
@@ -19,7 +25,8 @@ class Mesh {
         }
 
         void render() {
-            glUseProgram(_shader);
+            // glUseProgram(_shader);
+            _shader->use();
 
             glEnableVertexAttribArray(0);
             glBindBuffer(GL_ARRAY_BUFFER, _buffer);
@@ -29,8 +36,10 @@ class Mesh {
         }
 
     private:
-        GLuint _shader;
+        Shader* _shader;
         GLuint _buffer;
         int _vertexCount;
         GLfloat* _vertices;
 };
+
+#endif
